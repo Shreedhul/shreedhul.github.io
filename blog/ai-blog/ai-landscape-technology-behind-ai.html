@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../style.css">
+        <title>The Current and Future Landscape of AI: The Technology of AI</title>
+    </head>
+    <body>
+        <nav class="nav-bar">
+            <ul class="nav-bar-list nav-bar-text-design">
+                <a class="nav-bar" href="ai-blog-hub.html">Back To AI Blog Directory</a>
+            </ul>
+        </nav>
+
+        <br>
+
+        <div class="bg-colour">
+
+            <h1>The Current & Future Landscape of AI: The Technology Behind AI</h1>
+            <h2>16/03/26</h2>
+
+            <br>
+
+            <h2>Introduction</h2>
+
+            <p>
+                AI is everywhere, but do you actually know what it is?
+            </p>
+
+            <p>
+                The first publicly released chatbot, ChatGPT 3.5, marked the beginning of a zeitgeist. With GPT 3.5 released just over three years ago on November 30th, 2022, we are still so early into this technological revolution that leaders frequently are asked to predict what this new era is even going to look like to try and alleviate the uneasy, brooding hearts of the public, caused by such drastic impending societal change. Given it is, I would say, the biggest topic in the world at the moment, a fair first question to ask is this: What is AI?
+            </p>            
+
+            <br>
+
+            <h2>What is AI?</h2>
+
+            <p>
+                It’s become a very common buzzword, but this nomenclature is imprecise. Really, when people say AI, they mean Gen AI/Generative AI. This is as opposed to predictive AI which uses AI to make predictions using past data, while Gen AI generates new content using past data. Technically there is a broader definition of AI as “anything that exhibits human like behaviour”. But usually when you see the term AI, it’s referring to the more precisely defined predictive or generative AI, even in scientific literature given how big these have become.
+            </p>
+
+            <p>
+                Artificial Intelligence has become a placeholder for the term LLM, which stands for Large Language Model. Presumably, this switch is because Artificial Intelligence gives a better intuition of what this new technology is for the public. Large Language Model is not self-explanatory. It’s easy to remember that Artificial Intelligence is just human made intelligence. So, to ask what AI actually is as a buzzword, really is just asking the question “What is an LLM?”. To sketch some background before defining an LLM, a brief paragraph on ML which stands for Machine Learning.
+            </p>
+
+            <p>
+                Machine Learning is more or less using statistics to find relationships between pieces of information about something so we can make predictions about another piece of information on this same thing. For example: If I had your age and your weight and I asked myself, “given these two pieces of information, what is mathematically the best prediction I can make of your height”.
+            </p>
+
+            <p>
+                The answer to this question depends on the distribution of height for a given weight and age among people. Assume we don’t have that, then if we randomly ask a bunch of people, we can make an educated estimate on the distribution. Also, the more people we ask, the better an idea we get. If we asked everyone on the planet, you’d have the full distribution, but that’s obviously not practical. Asking a few, but as many as possible, and then estimating will suffice. We can gauge the shape of the distribution and then, using an algorithm (imagine this algorithm as just trial and error), we work out an approximate relationship between the age & weight with the height. A key point is this formula is an approximation, we cannot get an exact “answer”, but we can keep “applying the formula” and with each iteration, we get a better formula (if done correctly). The process of iteratively using this formula on past data to find a relationship that allows us to make predictions is called training.
+            </p>
+
+            <p>
+                Using some portion of the data points where we have “the answer” (i.e. what we want to predict), we can see how close our predictions are to the answer using our formula. For example, after training on some portion of our past data, our “formula” predicts that someone who is 25 and weighs 75kg is 175cm. Then we check this with a different portion of our past data. Maybe we see 173cm, 178cm, 177cm and 174cm in the testing portion of our training data. From this, our model made a decent estimation, being roughly in the middle of the values from genuine past data. This splitting of past data and using some for training and some for testing is called the “test train split”. The concepts of training and testing are a central concept to machine learning, and you will hear training all the time in conversations about LLMs.
+            </p>            
+
+            <p>
+                Using this formula we approximated using past data, we plug in the person’s weight and height of the person whose height you want to predict, and that’s your prediction! There’s more to it, but that’s the jist.
+            </p>
+
+            <p>
+                The “trial and error” algorithm is a machine learning algorithm. When the algorithm/architecture is a Neural Network (don’t worry about what a neural network is exactly, just know it’s snazzy compared to the other algorithms), then you call it Deep Learning, a subset of Machine Learning. A lot of jargon!
+            </p>
+
+            <p>
+                Now, to define an LLM! A Large Language Model is a language predictor, nothing more. Suddenly the name makes more sense! It models language using text fed in as training data to then predict language, and it is very large! It is nothing more than applying ML to predict language based off previous text. It has “read” (trained from) the entire internet, and using this past information, comes up with a very very big “formula” (for lack of a better simple word) that is used to predict the most likely response based off both what you ask it and any previous messages in the conversation.
+            </p>
+
+            <p>
+                Side note, you may hear people talking about the model’s “parameters” or “weights”. Both mean the same thing, and more or less they are talking about this aforementioned “formula”. Formula is never used in this context, I just thought it was more understandable. This formula is an ML algorithm, like the ones I mentioned in the previous paragraph but much much more complicated than typical ML algorithms. The weights are also fixed once the model is trained. For example, when you use GPT 5, the weights are the same for every single GPT 5 user. 
+            </p>
+
+            <p>
+                An important point is that AI doesn’t predict the response in one go. It does this piece by piece, with these pieces being called tokens. I’ll give an example:
+            </p>
+
+            <p>
+                Say you ask your LLM (for example, ChatGPT) “Who is the current Prime Minister of the UK”, and it responds “The current Prime Minister is Kier Starmer”, what it did is it took your question, then said “okay, refer to the formula we came up with during training and input ‘Who is the current Prime Minister of the UK’” and then the output is the first token, “The”. Then this process is repeated “Okay, plug the entire question and our first word of our answer, ‘The’, into our formula” and then the output is the first two tokens, “The current”. This process is repeated until you have the entire response. You may notice when using an LLM, the response doesn’t output in one go, but rather it gives you the answer word by word.
+            </p>
+
+            <p>
+                This isn’t a design choice, the LLM is working out its response on the fly, bit by bit! You may wonder why we call each word a token, rather than a word. It’s because tokens usually aren’t whole words, but parts of words. I simplified the process for explanation purposes. Actually, it would be split out more like “Th”, then “The”, then “The “, then “The pri” then “The prime” etc.
+            </p>
+
+            <p>
+                Seems weird for us humans, but this is how current LLM architecture processes its response. Below is a table representing this process more clearly. Each row represents each time the formula has to be used to work out the next word in the reply.
+            </p>
+
+            <br>
+
+            <table>
+                <tr>
+                    <th>Everything we input into the "formula"</th>
+                    <th>Output from the formula</th>
+                    <th>The cumulative output</th>
+                </tr>
+                <tr>
+                    <td>
+                        Q: “Who is the prime minister of the UK?”
+                        <br>
+                        A: “”
+                    </td>
+                    
+                    <td>
+                        "The"
+                    </td>
+                    
+                    <td>
+                        "The"
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Q: “Who is the prime minister of the UK?”
+                        <br>
+                        A: “The”
+                    </td>
+                    
+                    <td>
+                        "current"
+                    </td>
+                    
+                    <td>
+                        "The current"
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        Q: “Who is the prime minister of the UK?”
+                        <br>
+                        A: “The current”
+                    </td>
+                    
+                    <td>
+                        "prime"
+                    </td>
+                    
+                    <td>
+                        "The current prime"
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Q: “Who is the prime minister of the UK?”
+                        <br>
+                        A: “The current prime”
+                    </td>
+                    
+                    <td>
+                        "minister"
+                    </td>
+                    
+                    <td>
+                        "The current prime minister"
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        Q: “Who is the prime minister of the UK?”
+                        <br>
+                        A: “The current prime minister”
+                    </td>
+                    
+                    <td>
+                        "is"
+                    </td>
+                    
+                    <td>
+                        "The current prime minister is"
+                    </td>
+                </tr>
+ 
+                <tr>
+                    <td>
+                        Q: “Who is the prime minister of the UK?”
+                        <br>
+                        A: “The current prime minister is"
+                    </td>
+                    
+                    <td>
+                        "Kier"
+                    </td>
+                    
+                    <td>
+                        "The current prime minister is Kier"
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Q: “Who is the prime minister of the UK?”
+                        <br>
+                        A: “The current prime minister is Kier”
+                    </td>
+                    
+                    <td>
+                        "Starmer"
+                    </td>
+                    
+                    <td>
+                        "The current prime minister is Kier Starmer"
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Q: “Who is the prime minister of the UK?”
+                        <br>
+                        A: “The current prime minister is Kier Starmer”
+                    </td>
+                    
+                    <td>
+                        "."
+                    </td>
+                    
+                    <td>
+                        "The current prime minister is Kier Starmer."
+                    </td>
+                </tr>
+
+            </table>
+
+            <br>
+
+            <p>
+                Really, this is just Machine Learning. Like with my example about predicting height using weight and age, we are predicting the token that comes next based on the tokens that came before. Instead of asking people their height, age and weight for training data, we look at what people have written before.
+            </p>
+
+            <p>
+                Seeing AI as a language predictor is important, because it dehumanises AI. When you realise it isn’t magic, you are less susceptible to sci-fi esque fears of the robots taking over. That is not to say there is not severe importance in making sure we have control of this technology, but the dangers look very different to what people imagine, but I will go over this in a later blog.
+            </p>
+
+            <p>
+                Due to the peculiar way in which LLMs work by predicting the most likely next token, this often leads to something called hallucinations, which is just the LLM getting something wrong. This is because it is not actually capable of thought, it is literally just making loads of predictions that somehow comes out to make coherent sentences. To be honest, it’s quite surprising this method even… works.
+            </p>
+
+            <p>
+                Examples of specific LLMs: ChatGPT 5, Claude Sonnet 4.6, Gemini 3.1, DeepSeek R1
+
+                <br>
+
+                Example of LLM brands: ChatGPT, Claude, Gemini, DeepSeek
+
+                <br>
+
+                Examples of LLM producing companies: Open AI, Anthropic, Google, DeepSeek
+            </p>
+
+            <br>
+
+            <h2>The Progress of AI Technology</h2>
+
+            <p>
+                Industry leaders are constantly giving predictions on the speed AI will develop. It’s incredibly important for them to think about it so they can make business decisions that have the future prudently in mind. They talk about how quickly the technology is progressing, even speaking about the big gains made as quickly as year on year (which I would agree with!) At the same time though, for the average consumer, while AI has definitely improved, it hasn’t been life changing over the past year. It answered questions last year and it answers questions now. It sometimes hallucinated a year ago and it sometimes hallucinates now. It was well beyond human capabilities for storing knowledge then, as is the case now. What exactly about LLMs are growing exponentially? Also, considering the technology is improving at an immense pace, if we can’t broadly visualize how quick it actually is, this gives room for fearmongering using completely unrealistic timescales, particularly from opportunists (again, will go over this in a later blog in this series).
+            </p>
+
+            <p>
+                Below I will go through a brief(ish) timeline of the main innovations of AI so you can see for yourself. One quick note, when referring to AI Technology, this is referring to the training algorithms used to develop the AI, as this is the massive bottleneck for AI performance.
+            </p>
+                  
+            <p>
+                AI had two transient waves before this current third wave. The first was in the 50s and 60s until a paper published in 1969 named “Perceptrons”, which proved that the current AI architecture proved mathematically it could not create an XOR gate. This proof brought the reality that perceptrons were fundamentally limited. Multi-layer perceptrons actually can create an XOR gate, but they were not widely used and this paper led to the loss of a lot of AI funding and the first “AI winter” where AI progress stalled.
+            </p>
+
+            <p>
+                Then there was another wave in the 80s where primitive forms of AI were being applied to real world scenarios, with success, and generating profits! This led to over $1 billion of funding is the US in the 80s! Unfortunately, the technology was too expensive, and the hardcoding aspect made them too rigid so the technology could not live up to the hype. This technology was very different to the perceptron in the 50s and 60s since it does not ingest data, but rather it was manually hard-coded. While it comes under the older, broad definition of AI of exhibiting human like intelligence, it is not Gen AI.  Ultimately, the funding was cut and just like when “Perceptrons” was published in 1969, the AI hype died. 
+            </p>
+
+            <p>
+                This didn’t stop research however, and innovations kept being made. In 1993, using the already existing Convolutional Neural Network (CNN for short), which is an extension of the Neural Network, a program was created that could recognise the digits represented by handwritten digits through a camera. This was a huge step in the progress in AI because this went back to the method of training off past data and successfully mimicked human reasoning in some way. The ability to differentiate digits, written in a wide variety of styles was huge and the way this was done was using weights. Instead of hard coding the AI as was done in the 80s, this method lets the AI figure it out itself. It is just given an algorithm to follow that alters the weights to figure out relationships for itself.
+            </p>
+
+            <p>
+                44 years after the neural network was first mathematically hypothesised, we finally got the first use-case related milestone for AI. A very slow start! While the tech of the 80s did have a use-case, it was short lived until the plug was pulled with the tech never returning, unlike neural networks and deep learning which came back to stay. This handwritten digit recognition, while not groundbreaking and with no massive hype-derived funding, was used by several companies, for example the post-office and it was successfully developed upon, rather than suddenly having a plug being pulled. CNNs being used to recognise handwritten digits was also the cause of the explicit end to the clearly inferior expert machines technology.
+            </p>
+
+            <p>
+                Throughout the 90s, the algorithms used to train data improved, most notably Long Short-Term Memory (LSTM for short), but a more interesting period was the 2000s. With the internet boom we suddenly had a body of knowledge that anyone with access to the internet could contribute to. This gave rise to training AI on large sets of data using information on the internet. This is where AI really started to take off and the improvements were fast. Computing technology was also much more powerful at this point and was capable of ingesting large amounts of data and training off this data. The culmination of these factors, along with the continued improvement in research and training algorithms led to AlexNet. In 2012, AlexNet won a competition called ImageNet, a yearly competition where various image classification programs were given a set of tasks and was largely used as a benchmark for all the main image classifiers. What was significant was not that AlexNet won, but that it absolutely destroyed the competition. The success of AlexNet was the first significant product that came from AI (and more specifically, from utilising deep learning techniques. Remember deep learning is just machine learning using any sort of neural network).
+            </p>
+
+            <p>
+                The ability to classify images is fairly significant, much more so than recognizing the digits represented by handwritten digits. Again though, this took 19 years from the handwritten digit program in 1993. Faster than the 44 years to go from the conception of the perceptron to this program, but still a very long time!
+            </p>
+
+            <p>
+                Progress was fast from here. Image classification and even image generation improved dramatically, even within each year. Computers and GPUs were getting more powerful very quickly and the amount of content on the internet was growing dramatically. 
+            </p>
+
+            <p>
+                Finally, the attention mechanism, as introduced in the revolutionary 2017 paper “Attention Is All You Need”, is where the most basic form of the architecture used even today was introduced. Possibly the most important paper published in the history of AI, this new architecture made it much faster to train on vast amounts of data. With this, the speed of improvement only got faster, and we were able to make things that were impossible before the attention mechanism was created. The phenomena of improvement of performance in AI from increasing the size of the training data is called the AI scaling law.
+            </p>
+
+            <p>
+                Over the next few years as transformers were refined and research kept going, soon after in September 2022, we got Dall-E 2, an incredibly powerful image generator. At this point, images that were being generated were so good that they could be confused for being a genuine photograph. Then in November 2022, just two months later, we got ChatGPT 3.5, the first publicly released general use LLM based chatbot. They used Reinforcement Learning from Human Feedback (RLHF for short) to tailor the model to be a “helpful assistant” rather than merely technology that predicts language.  It still had a long way to go, but this was so very impressive technology. It can produce coherent sentences on its own and answer questions! From here, the value of LLMs and AI spoke for itself and through the next few years, word of mouth set the world on fire. 10 years after AlexNet shocked the AI community!
+            </p>
+
+            <p>
+                By its name, ChatGPT 3.5, you probably figured out this isn’t the first version of the GPT model (GPT 1 was released June 2018 if you were curious). ChatGPT was also not the only LLM at the time, but it was the first to have the courage to release it to the public. These chatbots are very hard to guardrail, especially back then when we knew a lot less so releasing it to the public put the company at a lot of risk. You may have seen horror stories yourself. As an example, I remember a few years ago reading about a story of an AI girlfriend on an app called Replika encouraging a user to pursue his idea of murdering the Queen of the UK, and he genuinely tried to do it. He was tried for treason and sent to 9 years in prison. He is still in prison at the time of this blog post! You have no idea what this chatbot is going to say to people and what your company will be held liable for if something goes wrong. Ultimately, OpenAI were the ones who bit the bullet first and this is why ChatGPT has become so popular among the average users. People even use ChatGPT with the terms LLM and AI interchangeable! The massive risk ended up paying off. All the other companies developing LLMs got to see what happens first and jump in after, at the expense of not being the first name that comes to mind when you think of AI.
+            </p>
+
+            <p>
+                In 2024, the rise of agentic AI came. Agentic AI is autonomous and is capable of doing tasks independent of a human. For example, doing a google search. With this google search example, one use is the LLM can double check a conclusion it has come to with a google search. This also gives the LLM access to the internet as it stands, which can be helpful when asking about something very recently new, as the LLM only knows from the time period it was trained over. For example, if you train your LLM in December 2025 and then you want to ask how many people attended the countdown for New Years Day in London, the LLM can’t possibly know. But with the ability to google, it can manually retrieve the information.
+            </p>
+
+            <p>
+                Retrieval Augmented Generation (RAG for short) is a very common method. This involves adding an extra piece of “specializing” text called a corpus that the agent can access. For example, if you are creating a chatbot for legal advice, you would take or create a document containing all relevant laws and information for the chatbot to use. The emphasis gained from specifically retrieving information from the corpus gives the impression of having “higher priority” compared to the very large and general knowledge of the LLM on its own. In turn, the most pertinent information pigments the chatbot’s “personality” by having this information at the tip of the LLM’s tongue.
+            </p>
+
+            <br>
+
+            <h2>Current AI Technology</h2>
+
+            <p>
+                And finally, with the past out the way, that leads us with what we have today.
+            </p>            
+
+            <p>
+                With these LLMs, ordinary people are able to use their human reasoning to make their own software. You just build it on top of the LLM. When you get spammed with advertisements on AI based products, usually these companies have a pre-existing LLM in the background which is then used to fuel the product. These LLMs that are not created by these companies are called Foundation Models (FM for short). The most recent models of ChatGPT, Claude and Gemini are the most common brands these companies use for their foundation models. A successful example is Perplexity, who use ChatGPT, Claude, Gemini, DeepSeek and an in-house model Sonar. Sonar wasn’t trained from the ground up but fine-tuned from a pre-existing model. These companies will then do what is called prompt engineering, where you store a system prompt to specialize the LLM to your product. A system prompt exists in the background, but the user cannot see it, and it appended to the beginning of every message sent by the user behind the hood. So, for example, if I wanted to create a chatbot for legal advice, you may have as your system prompt:
+            </p> 
+            
+            <p>
+                “You are an expert in giving legal advice. Do not talk about anything other than legal advice and bring the subject back to legal advice if the user deviates. Do not make up any information and always talk professionally.”
+            </p> 
+
+            <p>
+                Maybe not that message exactly, but that’s the gist of it. Then it will be someone’s job to tinker this system prompt to try and optimise the outcomes of the customers using the chatbot. With all of this, the technology of chatbots is available for anyone to not just use, but also to make their own product that might be useful to someone!
+            </p> 
+
+            <p>
+                The reason people use foundation models rather than making their own model is the sheer amount of money it costs to train a high quality LLM. Cutting edge LLMs at the moment cost upwards of $100 million! Whereas, depending on which FM you choose to run under the hood, you could be looking at (for more basic models) less than $1 per message using an FM. An in-between option, as briefly mentioned about Sonar, is to fine tune models as well. This is where you partially re-train a pre-existing model. This may cost more like $10,000, which is much better than $100 million!
+            </p> 
+
+            <p>
+                The price tag on training these models largely come from GPUs and compute. GPUs, as in the same Graphics Processing Units that are in regular desktops and laptops, are used for the training process of LLMs as well as the use of LLMs by customers. The reason is because GPUs are very good at running multiple processes at the same time, which is extremely useful with the way transformer architecture works for training AI. Compute refers to the processing power of the GPU. When people talk about demand for compute, they are talking about the demand to use these GPUs to use their LLM, or to train their LLM depending on the context. Demand for compute is synonymous with demand for consumption of AI products.
+            </p> 
+
+            <p>
+                These LLMs also have what is called a context window, which is essentially the short-term memory of the LLM. The bigger the context window, the more information can be directly stored in the LLMs “memory” (memory in the human sense, not in the computer sense) when determining a response. Larger context windows mean more of the current conversation can be considered and it means it will take longer for the LLM to forget earlier parts of the conversation. Even the difference between ChatGPT 3.5 (Nov 22) vs ChatGPT 5 (Aug 25) is noticeably large. This would be another area of research as to how we can make these context windows larger by being structuring the AI architecture more intelligently in some way.
+            </p> 
+
+            <p>
+                I mentioned DeepSeek earlier, the release of DeepSeek’s LLM (both the company name and LLM brand name are DeepSeek) was a huge plot twist in the history of AI just over a year ago as of writing this, with a Chinese startup inexplicably creating an LLM that competed with top tier models in Jan 2025. Though it is thought (but not 100% known) they utilised pre-existing models to achieve this, it was proof that cutting edge LLMs weren’t restricted to these known corporations with huge amounts of pre-existing brand strength, and that everybody needs to stay on their toes about being sucker punched by new competition! DeepSeek also really put China on the roadmap in terms of LLM development.
+            </p> 
+
+            <br>
+
+            <h2>Where Might the Future of AI Technology Go?</h2>
+
+            <p>
+                Looking at the past, here’s a timeline of the development of AI technology that is still used:
+            </p>
+
+            <table>
+                <tr>
+                    <th>
+                        Years Passed
+                    </th>
+                    
+                    <th>
+                        Year of Milestone
+                    </th>
+                    
+                    <th>
+                        Milestone Description
+                    </th>
+                </tr>
+
+                <tr>
+                    <td>
+                        Start
+                    </td>
+                    
+                    <td>
+                        1949
+                    </td>
+                    
+                    <td>
+                        Maths of Neural Networks and the Perceptron (fundamental to AI)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        8 Years
+                    </td>
+                    
+                    <td>
+                        1958
+                    </td>
+                    
+                    <td>
+                        First physical Perceptron built
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        44 Years
+                    </td>
+                    
+                    <td>
+                        1989
+                    </td>
+                    
+                    <td>
+                        Maths of the AI architecture for handwritten digit recognition software
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        4 Years
+                    </td>
+                    
+                    <td>
+                        1993
+                    </td>
+                    
+                    <td>
+                        Built an AI program that can recognise the digits in handwritten digits
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        19 Years
+                    </td>
+                    
+                    <td>
+                        2012
+                    </td>
+                    
+                    <td>
+                        AlexNet wins ImageNet, the first show case of the power of neural networks in generative AI and innovating AI architecture
+                    </td>
+                </tr>
+ 
+                <tr>
+                    <td>
+                        5 Years
+                    </td>
+                    
+                    <td>
+                        2017
+                    </td>
+                    
+                    <td>
+                        Attention Mechanism first created
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        1 Year
+                    </td>
+                    
+                    <td>
+                        2018
+                    </td>
+                    
+                    <td>
+                        First LLMs using the attention mechanism are made, leading to a spike in quality of chatbots available
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        4 Years
+                    </td>
+                    
+                    <td>
+                        2022
+                    </td>
+                    
+                    <td>
+                        First chatbot which is deemed functional enough to be released to the general public
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        2 Years
+                    </td>
+                    
+                    <td>
+                        2024
+                    </td>
+                    
+                    <td>
+                        Agentic AI is introduced and quickly adopted
+                    </td>
+                </tr>
+
+            </table>
+
+            <br>
+
+            <p>
+                A general trend is that new breakthroughs came very very slowly during the beginning of AI. Then suddenly in the 2010s and 2020s everything was blazingly fast, particularly the past few years. Remember, in this timeline, most people only knew about AI from maybe 2023-2024 (myself included!) For so long it was underground. A niche research field in the 80s and 90s, believed to be the next big thing in certain tech circles in the 2010s, and actualised in the past few years. When experts talk about the exponential speed at which AI development is progressing, from this perspective it’s clear why! However, while in the background phenomenal progress is being made by some incredibly smart people and it’s an incredibly impressive feat, think about what it looks like from the side of the general public.
+            </p> 
+
+            <p>
+                The perceptron was built in 1958, not useful for normal people. In 1993, AI could recognise the digits in handwritten digits. It’s cool but not really changing people’s lives still. Might capture someone’s attention for a minute or two before they forget about it. 2012 AlexNet generated impressive images for the time. Again, quite cool but if you look at the images they were generating, they were terrible images compared to normal human photos and so not useful for the general public. The first version of ChatGPT, while it proved the viability of the transformer architecture by providing coherent responses, was terrible, couldn’t hold on to conversations coherently etc, could be useful in cases like fact checking and genuinely very impressive, but still not completely useable. Then suddenly, something everyone can use and gain value from came out in 2022. Then, in 4 years it went from barely good enough to release to much better at holding on to conversations, being able to access the internet in real time to go beyond its training data, more technical additions like MCP which allows for people creating AI based products to “attach” things to the LLM. From the lens of the general public, it went from non-existent, to useful in 2022, to a bit more useful now with agentic AI and improved “memory” (called the context window) of on-going conversations.
+            </p> 
+
+            <p>
+                The reason I bring this up is not to knock AI research, but to make the point that AI is not going to turn people into cyborgs and set the world on fire in the next year or two, like some sources claim. When people talk about the exponential improvements, that is considering that it took decades to actually gain traction. The extrapolation from handwritten digits to impressive image generation, to LLMs, to LLM that can do things on its own is not imminently life shattering. So don’t believe people when they make big claims off of time scales for a few years into the future. This fear mongering and general public perception of AI is something I will delve into in later blog in this landscape of AI project.
+            </p> 
+
+            <p>
+                Likewise, given this exponential curve, if we extrapolate to the next decade, or even the next few decades, then it makes sense to start expecting a world that looks very different to today. If progress keeps speeding up at the same rate, the world could look very different. Demis Hassabis put it well in an interview he did. To paraphrase, he said people greatly overestimate what AI will do in the short term but greatly underestimate what it will do in the long term. It is sensible to be apprehensive about AI, but the timescale in which we should be cautious about should not be only a few years into the future!
+            </p> 
+
+            <p>
+                In the next blog post, I will talk about the exponential growth for the revenues of the companies producing LLMs. The revenue has been 10x-ing the past three years!
+            </p> 
+
+            <br>
+
+            <h2>The Future of LLM Progress</h2>
+
+            <p>
+                Despite all the recent success with AI, there is a big question arising which could be a potential issue for AI. The issue is the scaling laws of AI are slowing down. That is, the amount of improvement in performance we get from the LLM for increasing the amount of data we train it on is decreasing. This is because improvements follow the S curve. The S curve is used to represent the rate of technological improvements for a given piece of innovation. When a new technology emerges, the improvements are very slow. Then suddenly it starts to take off and sees huge exponential grow. Then these “easy gains” are lost and we see diminishing returns. We’ve started to hit these diminishing returns, which basically means we need better algorithms rather than more data if we want to improve LLMs. This could mean continuous small innovations, or a huge new technology that blows the AI community away in the same manner AlexNet and attention mechanisms did.
+            </p> 
+
+            <p>
+                People are starting to question whether LLMs are even the way forward, or whether we need totally new technology. I would say there is no general consensus at the moment. Yann LeCun, one of the main players that created the handwritten digit technology back in 1993 (mentioned earlier) has been pushing for world models being the future, which interpret the world around them and use abstract representations of the real world rather than general language tokens, with the idea being this new technology actually learns the world around it and predicts future states in real life, rather than predicting language specifically.
+            </p>
+
+            <p>
+                Back to LLMs though, could this mean AI progress starts to slow down? If so, what does that mean? I think there are a few implications, of which I’ll dive into in later parts of this series on the landscape of AI. But to briefly touch on a few, this could be very bad for the economics of these companies training the LLMs if it leads to investments slowing down. On the other hand, this switch from training more data to training data more efficiently could be good news in terms of the negative effect LLMs have on the environment!
+            </p> 
+
+            <br>
+
+            <h2>Summary</h2>
+
+            <p>
+                To summarise, AI is actually quite an old field, had its first wave of hype in the 50s-60s and a second in the 80s but died off both times, and just in the last 15ish years we have seen a huge development in this technology after half a century of slow progress. The exponential growth experts talk about is in comparison to the growth we have seen throughout the entire history of AI, and while an accurate statement, in my opinion this phrasing is prone to activating the imaginations of the general public or at the very least, gives room for bad actors to use this narrative to exaggerate the future themselves for their own benefit, and at the detriment of public education of AI and the public’s peace of mind. In the past few years, we’ve seen phenomenal progress, but the easy path of “more training data” seems to be slowing down, so we are going to have to start innovating for progress.
+            </p> 
+
+        </div>
+    </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Blog</title>
+    </head>
+    <body>
+        <nav>
+            <a href="../index.html">Home</a>
+        </nav>
+        
+        <h2>The story behind ClearTune ML:</h2>
+
+        <p>
+            My goal with ClearTune ML was to solve an obvious problem for Data Scientists in a textbook way.
+        </p>
+
+        <p>
+            <b>The obvious problem:</b> Utilising LLM reasoning to speed up the build time of an ML model.
+            <br>
+            <b>The textbook way:</b> Creating a tool which enhancing data scientists with subject expertise to build and
+            make decisions, rather than offloading human expertise and the decision making to the LLM.
+        </p>
+
+        <p>
+            After snooping around, I read multiple horror stories of non-experienced Data Scientists slapping
+            data into AI and without any sort of checking, presenting terrible models to higher ups, and being
+            unable to answer the simplest questions about the model due to step skipping.
+        </p>
+
+        <p>
+            There were also stories of AI being a corporate checkbox to be ticked off, rather than an optional
+            tool to be chosen only when needed. This seems to also lead to the situation mentioned in the prior
+            paragraph.
+        </p>
+
+        <p>
+            I also found while snooping around criticisms of the previous movement that wanted to speed up the process,
+            AutoML. This used what I would call "intelligent trial and error" to tune ML models for the user.
+            People typically complained that it was both non-performant (that is, the accuracy of these model's predictions
+            were not anywhere near what a human can manage by tinkering manually), and the output isn't understandable
+            since the tinkering was offloaded to an algorithm which leads no bread crumb trail. On top of this,
+            you have little control or sight over the hyperparameter tuning, keeping juniors partially blind to the
+            process and frustrating experienced Data Scientists who rightly want control because they know what
+            they are doing.
+        </p>
+
+        <p>
+            I wanted to solve this obvious problem in a way that still preserved the required human intervention
+            to produce quality prediction from quality ML models, to give the value people are rightly suspecting AI can
+            generate and ease the paranoia of falling behind technologically and missing out on easy value, but in a way
+            that was different to how those who tried before seem to have failed. That is, create a program that can
+            aid and speed up the Data Scientist in building the model, in a way where any automation is met with adequate measures
+            and features to keep the process understandable while still giving the user full control the entire way.
+        </p>
+
+        <p>
+            As you will see in the features list below, ClearTune ML uses LLM reasoning that has been fed Data Science
+            knowledge alongside Bayesian Optimisation to give a baseline set of hyperparameters for the Data Scientist
+            as well as pastable code if the user prefers over writing the code themselves. There will be a visual
+            diagram with any usual relevant metrics (AUC, SHAP etc) at each iteration to tell of story of how the
+            accuracy of the model's prediction is changing as the LLM makes decisions.
+        </p>
+
+        <p>
+            Currently, ClearTune ML does nothing for MLOPs. Maybe that will change in the future though!
+        </p>
+
+        <br>
+
+        <h2>Features</h2>
+        
+        <p>Insert Features Here</p>
+    </body>
+</html>
