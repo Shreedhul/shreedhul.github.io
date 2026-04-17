@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-MPVWB1E2SN"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-MPVWB1E2SN');
+        </script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../style.css">
+        <title>The Current and Future Landscape of AI: Summary</title>
+    </head>
+
+    <body>
+        <nav class="nav-bar">
+            <ul class="nav-bar-list nav-bar-text-design">
+                <a class="nav-bar" href="ai-blog-hub.html">Back To AI Blog Directory</a>
+            </ul>
+        </nav>
+
+        <br>
+
+        <div class="bg-colour">
+
+            <h2>17/04/26</h2>
+            <h1>Does Google's TPU Put Nvida's $4.83 Billion Valuation in Danger?</h1>
+
+            <p>
+                Currently, CPUs (Central Processing Units) and GPUs (Graphical Processing Units) are largely the makeup of data centers. They are the main components for providing compute to train LLMs at the moment. There has been the development of a new piece of hardware, the TPU (Tensor Processing Unit), used specifically to train models. This has major implications for Nvidia, which I will go over along with the pros and cons of a TPU.
+            </p>
+
+            <p>
+                The reason GPUs are so good for training LLMs is their ability to compute in parallel, rather than in series like a CPU. That is, a GPU can calculate many calculations at the same time, rather than needing to wait for each computation in a sequence to end before the next begins, which is the limitation of a CPU. This is very useful if you have a lot of non-sequential computations to handle at one time. This is very useful when you want to train to predict every token and its respective loss function value in a paragraph at the same time to speed the process up, rather than doing each token prediction and loss function value one token at a time.
+            </p>
+
+            <p>
+                While GPUs were initially for doing the computations behind graphics (hence graphical processing unit), using CUDA, you can repurpose these GPUs to general computation. CUDA is essentially software that allows a CPU to be used to control a large set of GPUs for general computation. Using CUDA, the use case of these GPUs is cast much wider. One important fact about CUDA (for this blog at least!) is that it is only compatible with Nvidia GPUs. The pre-existing, widespread use of CUDA gives Nvidia a moat for being “the” GPU provider for training LLMs, which is important given how much money there is in selling hardware that can generate compute for LLM training.
+            </p>
+
+            <p>
+                We can see how important the AI boom has been for Nvidia’s valuation by tracking how it has grown. In October 2022, a month before the first publicly released LLM, Nvidia was worth $337 billion dollars. Today in April 2026, $4.83 trillion dollars! It has gone up 15x! This means nearly 95% of Nvidia’s current valuation is attributable to this AI boom. At the most highly valued company in the world at the moment, this line of business is now vital to Nvidia’s survival.
+            </p>
+
+            <p>
+                This is why TPUs are a threat to Nvidia. An innovation by Google, these TPUs are specifically designed to be optimized for matrix multiplication, which is a mathematical operation which if foundational and frequently appearing in the transformer architecture that details how LLMs are trained. Given the training algorithm uses matrix multiplication so much, it’s quite an interesting idea! However, this circumvents Nvidia’s moat on CUDA and GPUs for training LLMs, and if Google is able to get all the big LLM companies to buy their TPUs over Nvidia’s GPUs, depending on what proportion of the market they take, will determine what proportion of the 95% of Nvidia’s valuation will be taken away as well!
+            </p>
+
+            <p>
+                The idea is that, since they are specialized for training LLMs, you do not need as many of them to train a model, hence making them cheaper. On top of that, Google claims they are more energy efficient than GPUs, which cuts the electricity bills as well as help mitigate the carbon footprint of training these models. Whether this is true in practice is hard to verify for several reasons. A downside brought up by Jensen Huang in his podcast episode with Dwarkesh is, since these GPUs are much more generalizable, if the transformer architecture changes in a way that is not compatible with TPUs, they will become obsolete whereas you GPUs are versatile enough to fit the mold of any innovations and change faced within the architecture of the training algorithms for these LLMs. While I question this a bit, given the premise of adjusting weights in matrix form and their multiplication being used to make a prediction has always been fundamental to machine learning and deep learning generally, it is still an interesting point that GPUs are much less likely to be crippled by change.
+            </p>
+
+            <p>
+                What we do know is definitely more efficient is the basic premise of efficiency from specificity. Firstly, a definition you may hear ASIC (Application Specific Integrated Circuit) which is a fancy way of saying the chip was built around a specific application, in this case LLM training. The way these TPUs are built specifically for LLM training is from their systolic array architecture, which I will detail now.
+            </p>
+
+            <p>
+                Every time a GPU completes a multiplication, it requires two registers, each one storing a number. Then you multiply the two numbers and store it to memory. This means, every time you multiply two numbers, you have to store the final product in memory, which is slow and inefficient, especially with the number of times two numbers are multiplied just to complete one “set” of matrix multiplications within the massive matrices used for current LLMs. The TPU’s systolic array architecture means each product moves in one “flow” from processing element to processing element. A processing element is used for each element in the array, and its only capabilities are to receive a number from an adjacent and previous element in the matrix, multiply this received number to its current number, and add it to an accumulator. This natural flow along with storing the sum in an accumulator rather than adding lots of intermediary steps from reading and writing to memory saves a lot of power and time. By virtue of design, TPUs are more efficient in this regard.
+            </p>
+
+            <p>
+                However, the claims that these TPUs will give you x% more per dollar or are y% more energy efficient is based off very biased data. Since Google are the original innovators and currently the only creators of the TPU, all studies/papers on this new architecture are done by Google, which raises questions as to whether there is any embellishment in these numbers to make them more appealing to buy. On top of that, the improvements of these TPUs are purely based on improvements of efficiency for training Gemini models (which is Google’s LLM) vs before using TPUs to train Gemini. This does not account for any other optimizations done anywhere in the training process by Google, which seems intentionally flawed.
+            </p>
+
+            <p>
+                Regardless of the dubious nature of Google’s claims as to the advantages of the TPU, on top of Google using their own TPUs to train their models, Anthropic has also opted to use Google’s TPUs. Immediately, Nvidia has lost two massive customers. If/when Google iteratively improves their TPUs, maybe it will not be as contentious, though we will need to compare the improvement of the TPU to the improvement of Nvidia’s GPUs, as of course Nvidia will be continuing to innovate as well.
+            </p>
+
+            <p>
+                If I were the CEO of Nvidia, rather than staying completely all in on GPUs, I would create a small subsidiary of Nvidia with a small team and a few million in funding (remember the 3.83 trillion-dollar evaluation and having the highest valuation in the world!) to try and compete with Google to make TPUs. We know how the mechanism of systolic array architecture works publicly already! Then, if TPUs turn out to be a fad, the project can be scrapped. Else, this subsidiary can continue to innovate and receive funding and resources generally in proportion to the success and demand of TPUs among customers who want to train frontier LLMs (or at least anything requiring lots of compute).
+            </p>
+
+            <p>
+                In my view, what could happen is the components of the transformer that require matrix multiplication can use TPUs, then the rest of the transformer, that is the “glue” steps between all the sequential matrix multiplication required for each prediction could be done with GPUs. Then, instead of the demand being purely one or the other, it will be some combination of the two. Of course, this relies on the ability for GPUs and TPUs to be able to communicate with each other. Who knows, maybe some successor of CUDA could be programmed to allow CPUs, GPUs and TPUs to work together in harmony in the way I just mentioned. Just an idea though!
+            </p>
+
+        </div>
+
+    </body>
+</html>
